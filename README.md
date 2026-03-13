@@ -36,12 +36,12 @@ Como este é um site estático, executá-lo em sua máquina é muito simples:
 
 1. Clone este repositório:
   ```bash
-  git clone [https://github.com/fhugomp/portfolio.git](https://github.com/fhugomp/portfolio.git)
+  git clone [https://github.com/fhugomp/fhugomp.github.io.git)
   ```
 
 2. Navegue até a pasta do projeto:
   ```bash
-  cd portfolio
+  cd fhugomp.github.io
   ```
 
 Abra o arquivo index.html diretamente no seu navegador ou utilize a extensão Live Server no VS Code para simular um servidor local.
