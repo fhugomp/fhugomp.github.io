@@ -3,25 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portifolio</title>
+    <meta name="description"
+        content="Portfólio de Hugo Mendes, estudante de Ciência de Dados. Conheça meus projetos em Python, SQL, APIs e automação.">
+    <meta name="author" content="Hugo Mendes">
+    
+    <meta property="og:title" content="Hugo Mendes | Portfólio">
+    <meta property="og:description"
+        content="Graduando em Ciência de Dados e Desenvolvedor. Confira meus projetos e habilidades.">
+    <meta property="og:image" content="https://fhugomp.github.io/portfolio/Images/capa-portfolio.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    
+    <link rel="stylesheet" href="./Styles/style.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap"
+        rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="./Images/logomarca.svg">
+    <title>Hugo Mendes - Portifolio</title>
 </head>
 <body class="tema-escuro">
     <header id="cabecalho" class="cabecalho-principal">
         <div class="logo-container">
-            <h1 class="logo-texto"></h1>
+            <img src="./Images/logomarca.svg" alt="Logo HM" class="logo-img">
         </div>
         
         <button id="btn-menu-mobile" class="menu-toggle">
-            <span class="material-symbols-outlined"></span>
+            <img src="./Images/Icons/menu_icon.svg" alt="Icone de menu" class="icone-menu">
         </button>
 
         <nav id="menu-navegacao" class="nav-oculta-mobile">
+            <button id="btn-fechar-menu" class="btn-fechar">
+                <img src="./Images/Icons/close_icon.svg" alt="Icone de fechar menu" class="icone-fechar">
+            </button>
+
             <ul class="lista-links">
-                <li class="item-link"><a href="" class="link-nav"></a></li>
-                <li class="item-link"><a href="" class="link-nav"></a></li>
-                <li class="item-link"><a href="" class="link-nav"></a></li>
-                <li class="item-link"><a href="" class="link-nav"></a></li>
-                <li class="item-link"><a href="" class="link-nav"></a></li>
+                <li class="item-link"><a href="#inicio" class="link-nav">Inicio</a></li>
+                <li class="item-link"><a href="#sobre" class="link-nav">Sobre mim</a></li>
+                <li class="item-link"><a href="#habilidades" class="link-nav">Principais habilidades</a></li>
+                <li class="item-link"><a href="#projetos" class="link-nav">Projetos</a></li>
+                <li class="item-link"><a href="#contato" class="link-nav">Contato</a></li>
             </ul>
         </nav>
     </header>
@@ -30,83 +52,244 @@
 
         <section id="inicio" class="secao-hero">
             <div class="hero-texto">
-                <h2 class="titulo-principal"></h2>
-                <p class="subtitulo"></p>
-                <a href="" class="btn btn-primario"></a>
+                <p>Olá! Meu nome é</p>
+                <h2 class="titulo">Hugo Mendes</h2>
+                <p class="subtitulo">Bacharelando em Ciência de Dados na Universidade Federal do Ceará</p>
+                <a href="https://drive.google.com/uc?export=download&id=1VjNydCMpDlkjuv8twV7aLnCrFjkrz8pY" target="_blank"
+                    class="btn btn-curriculo">
+                    <img src="./Images/Icons/download_icon.svg" alt="Icone de download" class="icone-download">
+                    Baixar Currículo
+                </a>
             </div>
             <div class="hero-imagem">
-                <img src="" alt="" class="foto-perfil">
+                <div class="foto-moldura"> <img src="./Images/perfil.png" alt="Foto de perfil" class="foto-perfil">
+                </div>
             </div>
         </section>
 
         <section id="sobre" class="secao-sobre">
-            <h2 class="titulo-secao"></h2>
+            <h2>| Sobre mim:</h2>
+            <h3 class="titulo-secao">Seja muito bem-vindo(a) ao meu portfólio. Conheça a minha trajetória:</h3>
             <div class="sobre-conteudo">
-                <p class="texto-corrido"></p>
+                <p class="texto-corrido">
+                    Atualmente curso Ciência de Dados na UFC, possuo conhecimento prático em Python, SQL e desenvolvimento de APIs.
+                    Busco ativamente uma oportunidade de estágio para aplicar minhas habilidades analíticas na resolução de
+                    problemas de negócio, contribuir com projetos de dados e machine learning, e me desenvolver em um ambiente
+                    inovador e colaborativo.
+                </p>
             </div>
         </section>
 
         <section id="habilidades" class="secao-habilidades">
-            <h2 class="titulo-secao"></h2>
+            <h2 class="titulo-secao">| Principais habilidades:</h2>
             <div class="grid-habilidades">
                 <article class="card-habilidade">
-                    <span class="material-symbols-outlined icone-destaque"></span>
-                    <h3 class="titulo-card"></h3>
-                    <p class="texto-card"></p>
+                    <i class="devicon-python-plain"></i>
+                    <h3 class="titulo-card">Python</h3>
+                    <p class="texto-card">
+                        Experiência prática no desenvolvimento de APIs RESTful utilizando Flask, implementação
+                        de testes automatizados com Pytest e conhecimento em bibliotecas para manipulação de dados como Pandas e
+                        Numpy.
+                    </p>
+                    </article>
+                    <article class="card-habilidade">
+                        <img src="./Images/Icons/database_icon.svg" alt="Icone de banco de dados" class="icone-destaque">
+                        <h3 class="titulo-card">SQL</h3>
+                        <p class="texto-card">
+                            Conhecimento prático aplicado na gestão e consulta de dados, com destaque para a integração de sistemas
+                            utilizando o banco de dados PostgreSQL em ambiente de nuvem (AWS RDS).
+                        </p>
+                    </article>
+                    <article class="card-habilidade">
+                        <img src="./Images/Icons/tag_icon.svg" alt="Icone de tags" class="icone-destaque">
+                        <h3 class="titulo-card">HTML e CSS</h3>
+                        <p class="texto-card">
+                            Criação de interfaces web modernas e responsivas utilizando HTML5 e CSS3, com foco na aplicação de estruturas
+                            semânticas e otimização para dispositivos móveis e desktops.
+                        </p>
+                    </article>
+                    
+                    <article class="card-habilidade">
+                        <i class="devicon-javascript-plain"></i>
+                        <h3 class="titulo-card">JavaScript</h3>
+                        <p class="texto-card">
+                            Desenvolvimento de aplicações front-end, com experiência na construção de interfaces responsivas para projetos
+                            de automação envolvendo Inteligência Artificial.
+                        </p>
                 </article>
             </div>
         </section>
 
         <section id="projetos" class="secao-projetos">
-            <h2 class="titulo-secao"></h2>
+            <h2 class="titulo-secao">| Projetos de Destaque:</h2>
             <div class="grid-projetos">
                 <article class="card-projeto">
-                    <img src="" alt="" class="imagem-projeto">
+                    <img src="./Images/capas_cards/capa_api_logistica.png" alt="Capa do Projeto API de Logística" class="imagem-projeto">
                     <div class="info-projeto">
-                        <h3 class="titulo-projeto"></h3>
-                        <p class="descricao-projeto"></p>
+                        <h3 class="titulo-projeto">API de Logística</h3>
+                        <p class="descricao-projeto">API RESTful desenvolvida com Python e Flask para gestão de entregas, veículos e
+                            rotas.
+                            Integração com banco PostgreSQL em nuvem (AWS RDS) e deploy contínuo no Render.</p>
                         <div class="botoes-projeto">
-                            <a href="" class="btn btn-secundario"></a>
+                            <a href="https://github.com/fhugomp/CasasBahia-API" target="_blank" class="btn btn-secundario">
+                                <img src="./Images/Icons/search_icon.svg" alt="Icone de busca" class="icone-botao">
+                                Ver Código
+                            </a>
                         </div>
                     </div>
-                </article>
+                    </article>
+                    <article class="card-projeto">
+                        <img src="./Images/capas_cards/capa_mytwitter.png" alt="Capa do Projeto My Twitter" class="imagem-projeto">
+                        <div class="info-projeto">
+                            <h3 class="titulo-projeto">My Twitte</h3>
+                            <p class="descricao-projeto">Aplicação de microblogging focada em Programação Orientada a Objetos (POO) e
+                                Repository Pattern. Implementação de testes automatizados com Pytest e gestão via Poetry.</p>
+                            <div class="botoes-projeto">
+                                <a href="https://github.com/fhugomp/MyTwitter" target="_blank" class="btn btn-secundario">
+                                    <img src="./Images/Icons/search_icon.svg" alt="Icone de busca" class="icone-botao">
+                                    Ver Código
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                    
+                    <article class="card-projeto">
+                        <img src="./Images/capas_cards/capa_landingPage.png" alt="Capa do Projeto Landing Page" class="imagem-projeto">
+                        <div class="info-projeto">
+                            <h3 class="titulo-projeto">Landing Page Responsiva</h3>
+                            <p class="descricao-projeto">Criação de uma página moderna utilizando HTML5 e CSS3 focada em estrutura
+                                semântica. Design totalmente responsivo para garantir a melhor experiência em dispositivos móveis e
+                                desktops.</p>
+                            <div class="botoes-projeto">
+                                <a href="https://fhugomp.github.io/Landing-page/" target="_blank" class="btn">
+                                    <img src="./Images/Icons/search_icon.svg" alt="Icone de visualizar" rel="noopener noreferrer" class="icone-botao">
+                                    Ver Site
+                                </a>
+                                <a href="https://github.com/fhugomp/Landing-Page" target="_blank" class="btn btn-secundario">
+                                    <img src="./Images/Icons/search_icon.svg" alt="Icone de visualizar" class="icone-botao">
+                                    Ver Código
+                                </a>
+                                </div>
+                                </div>
+                                </article>
+                                <article class="card-projeto">
+                                    <img src="./Images/capas_cards/capa_cordel.png" alt="Capa do Projeto Cordel" class="imagem-projeto">
+                                    <div class="info-projeto">
+                                        <h3 class="titulo-projeto">Projeto Cordel Moderno</h3>
+                                        <p class="descricao-projeto">Página web responsiva construída com HTML5 e CSS3, com foco na aplicação de efeitos
+                                            Parallax e estruturação semântica avançada para exibir poesia de forma interativa.</p>
+                                        <div class="botoes-projeto">
+                                            <a href="https://fhugomp.github.io/Cordel/" target="_blank" class="btn">
+                                                <img src="./Images/Icons/search_icon.svg" alt="Icone de visualizar" rel="noopener noreferrer"
+                                                    class="icone-botao">
+                                                Ver Site
+                                            </a>
+                                            <a href="https://github.com/fhugomp/Cordel" target="_blank" class="btn btn-secundario">
+                                                <img src="./Images/Icons/search_icon.svg" alt="Icone de busca" class="icone-botao">
+                                                Ver Código
+                                            </a>
+                                        </div>
+                                    </div>
+                                </article>
             </div>
         </section>
 
         <section id="contato" class="secao-contato">
-            <h2 class="titulo-secao"></h2>
-            <form id="form-contato" class="formulario">
+            <h2 class="titulo-secao">| Entre em contato comigo:</h2>
+            
+            <div class="grid-contato">
+            
+                <address class="info-contato-lista">
+            
+                    <div class="card-contato">
+                        <img src="./Images/Icons/mail_icon.svg" alt="Ícone de e-mail" class="icone-contato">
+                        <div class="dados-contato">
+                            <h3 class="titulo-contato">E-mail</h3>
+                            <p><a href="mailto:fhugomp@alu.ufc.br" class="link-contato">fhugomp@alu.ufc.br</a></p>
+                        </div>
+                    </div>
+            
+                    <div class="card-contato">
+                        <img src="./Images/Icons/cell_icon.svg" alt="Ícone de telefone" class="icone-contato">
+                        <div class="dados-contato">
+                            <h3 class="titulo-contato">Telefone</h3>
+                            <p><a href="tel:+5585985532884" class="link-contato">(85) 98553-2884</a></p>
+                        </div>
+                    </div>
+            
+                    <div class="card-contato">
+                        <img src="./Images/Icons/location_icon.svg" alt="Ícone de localização" class="icone-contato">
+                        <div class="dados-contato">
+                            <h3 class="titulo-contato">Localização</h3>
+                            <p>Fortaleza</p>
+                        </div>
+                    </div>
+            
+                    <div class="card-contato">
+                        <i class="devicon-linkedin-plain"></i>
+                        <div class="dados-contato">
+                            <h3 class="titulo-contato">Linkedin</h3>
+                            <a href="https://www.linkedin.com/in/fhugomp/" target="_blank"
+                                rel="noopener noreferrer">linkedin.com/in/fhugomp</a>
+                        </div>
+                    </div>
+            
+                    <div class="card-contato">
+                        <i class="devicon-github-original"></i>
+                        <div class="dados-contato">
+                            <h3 class="titulo-contato">Github</h3>
+                            <a href="https://www.github.com/fhugomp/" target="_blank"
+                                rel="noopener noreferrer">github.com/fhugomp</a>
+                        </div>
+                    </div>
+                </address>
+            
+                <form id="form-contato" class="formulario">
+            <div class="linha-inputs">
                 <div class="grupo-input">
-                    <label for="" class="label-form"></label>
-                    <input type="" id="" class="campo-form">
+                    <label for="nome" class="label-form oculto-visualmente">Nome:</label>
+                    <input type="text" id="nome" name="nome" class="campo-form" placeholder="Seu Nome" required>
+                    </div>
+                    
+                    <div class="grupo-input">
+                        <label for="email" class="label-form oculto-visualmente">E-mail:</label>
+                        <input type="email" id="email" name="email" class="campo-form" placeholder="Seu E-mail" required>
+                    </div>
+                    </div>
+                    <div class="grupo-input">
+                <label for="assunto" class="label-form oculto-visualmente">Assunto:</label>
+                <input type="text" id="assunto" name="assunto" class="campo-form" placeholder="Assunto" required>
                 </div>
-                <div class="grupo-input">
-                    <label for="" class="label-form"></label>
-                    <input type="" id="" class="campo-form">
+            <div class="grupo-input">
+                <label for="mensagem" class="label-form oculto-visualmente">Mensagem:</label>
+                <textarea id="mensagem" name="mensagem" class="campo-form texto-area" rows="4" placeholder="Sua Mensagem"
+                    required></textarea>
                 </div>
-                <div class="grupo-input">
-                    <label for="" class="label-form"></label>
-                    <textarea id="" class="campo-form texto-area"></textarea>
-                </div>
-                <button type="" id="btn-enviar" class="btn btn-primario"></button>
-                <p id="status-mensagem" class="mensagem-oculta"></p>
+            <button type="submit" id="btn-enviar" class="btn btn-primario largo">
+                Enviar Mensagem
+                <img src="./Images/Icons/send_icon.svg" alt="Icone de envio" class="icone-botao">
+            </button>
+            <p id="status-mensagem" class="mensagem-oculta"></p>
             </form>
-        </section>
+        </div>
+    </section>
 
     </main>
 
     <footer id="rodape" class="rodape-site">
-        <div class="links-sociais">
-            <a href="" class="icone-social"></a>
-            <a href="" class="icone-social"></a>
-        </div>
-        <p class="texto-direitos"></p>
+    <div class="creditos-rodape">
+        <p class="texto-direitos">&copy; 2026 Desenvolvido por Hugo Mendes.</p>
+        <p class="texto-adaptacao">
+            Design adaptado do portfólio de Letícia Smirelli.
+        </p>
+    </div>
     </footer>
 
     <button id="btn-topo" class="btn-flutuante oculto">
-        <span class="material-symbols-outlined"></span>
+        <img src="./Images/Icons/upKeyboard_icon.svg" alt="Icone de subir para o topo" class="icone-botao">
     </button>
 
-    <script src=""></script>
+    <script src="./JS/menu.js"></script>
+    <script src="./JS/send_email.js"></script>
 </body>
 </html>
