@@ -296,6 +296,9 @@ section {
     height: 4.8rem;
     margin-bottom: 1.6rem;
     color: var(--cor-branco); 
+    display: block;
+        margin: 0 auto 1.6rem auto;
+        line-height: 1;
 }
 
 .titulo-card {
@@ -728,7 +731,9 @@ section {
 
     /* HABILIDADES E PROJETOS */
     .grid-habilidades {
-        grid-template-columns: repeat(4, 1fr); /* Layout com 4 colunas iguais no desktop */
+    grid-template-columns: repeat(3, 1fr);
+        /* 3 colunas x 2 linhas fica perfeito */
+        gap: 2.4rem;
     }
 
     .grid-projetos {
