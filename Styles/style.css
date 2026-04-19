@@ -731,9 +731,9 @@ section {
 
     /* HABILIDADES E PROJETOS */
     .grid-habilidades {
-    grid-template-columns: repeat(3, 1fr);
-        /* 3 colunas x 2 linhas fica perfeito */
+        grid-template-columns: repeat(3, 1fr);
         gap: 2.4rem;
+            /* ou o espaçamento que preferir */
     }
 
     .grid-projetos {
