@@ -733,7 +733,6 @@ section {
     .grid-habilidades {
         grid-template-columns: repeat(3, 1fr);
         gap: 2.4rem;
-            /* ou o espaçamento que preferir */
     }
 
     .grid-projetos {
