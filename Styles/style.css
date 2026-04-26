@@ -217,17 +217,40 @@ section {
     margin-bottom: 1rem;
 }
 
+/* Animação do Cursor da Seção Hero */
+.cursor-pisca {
+    -webkit-text-fill-color: var(--cor-branco);
+    /* Força a cor ignorando o transparente do gradiente */
+    color: var(--cor-vermelho);
+    font-weight: 400;
+    animation: piscar 0.8s step-end infinite;
+}
+
+@keyframes piscar {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
 /* === Moldura com Gradiente Radial (Mobile) === */
+
 .foto-moldura {
+    display: flex;
     width: 100%;
     max-width: 28rem;
     aspect-ratio: 1 / 1; /* Força o container a ser um quadrado perfeito */
+    background: radial-gradient(circle, var(--cor-bg-preto) 0%, var(--cor-vermelho) 100%);
     border-radius: 50%; /* Transforma o quadrado em círculo */
-    padding: 1.5rem; /* Cria o espaço que funcionará como a espessura da borda colorida */
-    background: radial-gradient(circle, var(--cor-bg-preto) 0%, var(--cor-vermelho) 100%); /* Gradiente radial do centro para a borda */
-    display: flex;
+    padding: 1.5rem;
+        /* Cria o espaço que funcionará como a espessura da borda colorida */
     justify-content: center;
     align-items: center;
+    
 }
 
 .foto-perfil {
@@ -236,6 +259,11 @@ section {
     border-radius: 50%; /* Garante que a imagem interna também seja circular */
     border: none;
     object-fit: cover; /* Preenche o círculo cortando excessos sem distorcer a imagem */
+    transition: transform 0.2s ease;
+    }
+    
+    .foto-perfil:hover {
+        transform: scale(1.05);
 }
 
 .btn, .btn-curriculo {
@@ -722,7 +750,7 @@ section {
     .foto-moldura {
         max-width: 38rem; /* Aumenta o tamanho limite do container da foto no Desktop */
         padding: 1.5rem; /* Mantém a espessura da borda da moldura */
-    }
+}
 
     /* SOBRE MIM */
     .sobre-conteudo {

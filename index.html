@@ -53,7 +53,7 @@
         <section id="inicio" class="secao-hero">
             <div class="hero-texto">
                 <p>Olá! Meu nome é</p>
-                <h2 class="titulo">Hugo Mendes</h2>
+                <h2 class="titulo"><span id="nome-digitado"></span><span class="cursor-pisca">|</span></h2>
                 <p class="subtitulo">Bacharelando em Ciência de Dados na Universidade Federal do Ceará</p>
                 <a href="https://drive.google.com/uc?export=download&id=1VjNydCMpDlkjuv8twV7aLnCrFjkrz8pY" target="_blank"
                     class="btn btn-curriculo">
@@ -72,10 +72,11 @@
             <h3 class="titulo-secao">Seja muito bem-vindo(a) ao meu portfólio. Conheça a minha trajetória:</h3>
             <div class="sobre-conteudo">
                 <p class="texto-corrido">
-                    Atualmente curso Ciência de Dados na UFC, possuo conhecimento prático em Python, SQL e desenvolvimento de APIs.
-                    Busco ativamente uma oportunidade de estágio para aplicar minhas habilidades analíticas na resolução de
-                    problemas de negócio, contribuir com projetos de dados e machine learning, e me desenvolver em um ambiente
-                    inovador e colaborativo.
+                    Estudante de Ciência de Dados na UFC, com sólida base analítica e estatística. Atualmente, aplico esses conhecimentos
+                    como bolsista de BI na CPITT. Tenho experiência prática em todo o ciclo dos dados: desde a extração e manipulação de
+                    bases complexas utilizando SQL e bibliotecas do Python (Pandas/NumPy), até a entrega visual e estratégica através do
+                    Power BI. Meu objetivo é atuar na interseção entre negócios e dados, resolvendo problemas complexos por meio de análise
+                    estatística e machine learning.
                 </p>
             </div>
         </section>
@@ -308,5 +309,29 @@
 
     <script src="./JS/menu.js"></script>
     <script src="./JS/send_email.js"></script>
+    <script>
+        const textoNome = "Hugo Mendes";
+        const elementoDigitado = document.getElementById("nome-digitado");
+        let indexLetra = 0;
+
+        function animacaoTypewriter() {
+            if (indexLetra < textoNome.length) {
+                elementoDigitado.innerHTML += textoNome.charAt(indexLetra);
+                indexLetra++;
+                setTimeout(animacaoTypewriter, 150);
+            } else {
+                setTimeout(() => {
+                    elementoDigitado.innerHTML = ""; // Apaga tudo instantaneamente
+                    indexLetra = 0;
+                    animacaoTypewriter(); // Chama a função novamente
+                }, 2900);
+            }
+        }
+
+        window.addEventListener("load", () => {
+            elementoDigitado.innerHTML = ""; // Garante que comece vazio
+            setTimeout(animacaoTypewriter, 500); // Espera meio segundo ao carregar a página antes de começar
+        });
+    </script>
 </body>
 </html>
