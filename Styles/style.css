@@ -192,6 +192,12 @@ body.tema-claro .btn-flutuante:hover .icone-botao {
     filter: invert(1) brightness(0.2) !important;
 }
 
+/* --- 7. ÍCONES DO MENU MOBILE --- */
+body.tema-claro .icone-menu,
+body.tema-claro .icone-fechar {
+    filter: invert(1) brightness(0.2);
+}
+
 /* ==========================================
    SOMBRAS E ELEVAÇÕES
    ========================================== */
