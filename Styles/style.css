@@ -4,37 +4,37 @@
 :root {
     --cor-bg-preto: #000000;
     --cor-bg-cinza: #131313;
-    --cor-vermelho: #A71818;
-    --cor-vermelho-claro: #9E3F3F;
-    --cor-cinza-claro: #919DAB;
-    --cor-cinza-escuro: #27302E;
+    --cor-vermelho: #a71818;
+    --cor-vermelho-claro: #9e3f3f;
+    --cor-cinza-claro: #919dab;
+    --cor-cinza-escuro: #27302e;
     --cor-branco: #fff;
 }
 
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box; /* Garante que padding e border não aumentem o tamanho final do elemento */
+    box-sizing: border-box;
 }
 
 html {
-    font-size: 62.5%; /* Define 1rem = 10px para facilitar os cálculos de proporção */
-    scroll-behavior: smooth; /* Animação de rolagem suave para links âncora */
-    scrollbar-width: none; /* Oculta a barra de rolagem no Firefox */
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
 }
 
 body {
-    font-size: 1.6rem; 
-    font-family: 'DM Sans', sans-serif; 
+    font-size: 1.6rem;
+    font-family: 'DM Sans', sans-serif;
     line-height: 1.5;
     width: 100%;
     max-width: 100vw;
-    overflow-x: hidden; /* Impede a rolagem horizontal indesejada */
-    -ms-overflow-style: none; /* Oculta a barra de rolagem no Internet Explorer e Edge */
+    overflow-x: hidden;
+    -ms-overflow-style: none;
 }
 
 ::-webkit-scrollbar {
-    display: none; /* Oculta a barra de rolagem no Chrome, Safari e Opera */
+    display: none;
 }
 
 a {
@@ -53,16 +53,26 @@ p {
 /* ==========================================
    2. ESTILOS GLOBAIS E COMPONENTES
    ========================================== */
-.tema-escuro {
-    background-color: var(--cor-bg-preto);
-    color: var(--cor-branco);
-}
 
 /* Compensação para links âncora com menu fixo */
 section {
-    scroll-margin-top: 8rem; /* Cria um respiro invisível no topo da seção para não ser coberta pelo menu fixed */
+    scroll-margin-top: 8rem;
 }
 
+/* === Animações Globais (Fade-in Scroll) === */
+.animar-fade {
+    opacity: 0;
+    transform: translateY(40px);
+    transition:
+        opacity 0.6s ease-out,
+        transform 0.6s ease-out;
+    will-change: opacity, transform;
+}
+
+.animar-fade.visivel {
+    opacity: 1;
+    transform: translateY(0);
+}
 /* === Botões Padrões === */
 .btn {
     color: var(--cor-branco);
@@ -72,7 +82,9 @@ section {
     border-radius: 0.8rem;
     font-size: 1.8rem;
     font-weight: 500;
-    transition: background-color 0.3s ease, color 0.3s ease; /* Suaviza a transição de cores nos estados de hover */
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
 }
 
 .btn:hover {
@@ -80,11 +92,139 @@ section {
 }
 
 .btn.btn-secundario {
-    background-color: var(--cor-bg-preto); 
+    background-color: var(--cor-bg-preto);
 }
 
 .btn.btn-secundario:hover {
     background-color: var(--cor-vermelho);
+}
+
+/* ==========================================
+            CORREÇÕES DE CORES E TEMA 
+   ========================================== */
+.tema-escuro {
+    background-color: var(--cor-bg-preto);
+    color: var(--cor-branco);
+}
+
+body.tema-claro {
+    --cor-bg-preto: #f3f4f6;
+    --cor-bg-cinza: #ffffff;
+    --cor-branco: #111827;
+    --cor-cinza-escuro: #e5e7eb;
+    --cor-cinza-claro: #4b5563;
+}
+
+.btn-tema {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--cor-branco);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem;
+    border-radius: 50%;
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+    margin-right: 1.6rem;
+}
+
+.btn-tema:hover {
+    background-color: var(--cor-bg-cinza);
+}
+
+/* --- 1. LOGOMARCA --- */
+body.tema-claro .logo-img {
+    filter: none;
+}
+
+/* --- 2. MOLDURA DA FOTO DE PERFIL --- */
+body.tema-claro .foto-moldura {
+    background: var(--cor-vermelho);
+}
+
+/* --- 3. BOTÕES PRIMÁRIOS (Download e Enviar Form) --- */
+body.tema-claro .btn {
+    color: #ffffff;
+}
+
+body.tema-claro .btn .icone-botao,
+body.tema-claro .btn .icone-download {
+    filter: invert(0) !important;
+}
+
+body.tema-claro .btn:hover {
+    color: var(--cor-branco);
+}
+
+body.tema-claro .btn:hover .icone-botao,
+body.tema-claro .btn:hover .icone-download {
+    filter: invert(1) brightness(0.2) !important;
+}
+
+/* --- 4. BOTÕES SECUNDÁRIOS (Projetos - Lupa) --- */
+body.tema-claro .btn.btn-secundario {
+    color: var(--cor-branco);
+}
+
+body.tema-claro .btn.btn-secundario .icone-botao {
+    filter: invert(1) brightness(0.2) !important;
+}
+
+body.tema-claro .btn.btn-secundario:hover {
+    color: #ffffff;
+}
+
+body.tema-claro .btn.btn-secundario:hover .icone-botao {
+    filter: invert(0) !important;
+}
+
+/* --- 5. ÍCONES DE HABILIDADES E CONTATO --- */
+body.tema-claro .icone-destaque,
+body.tema-claro .icone-contato {
+    filter: invert(1) brightness(0.2);
+}
+
+/* --- 6. BOTÃO FLUTUANTE (Voltar ao Topo) --- */
+body.tema-claro .btn-flutuante:hover .icone-botao {
+    filter: invert(1) brightness(0.2) !important;
+}
+
+/* ==========================================
+   SOMBRAS E ELEVAÇÕES
+   ========================================== */
+
+/* Sombras Padrão (Tema Escuro) */
+.formulario,
+.card-projeto,
+.card-habilidade,
+.card-contato {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Sombras Intensificadas no Hover (Tema Escuro) */
+.card-projeto:hover,
+.card-habilidade:hover,
+.card-contato:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+}
+
+/* --- Sombras Específicas para o Tema Claro --- */
+body.tema-claro .formulario,
+body.tema-claro .card-projeto,
+body.tema-claro .card-habilidade,
+body.tema-claro .card-contato {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border-color: transparent;
+}
+
+body.tema-claro .card-projeto:hover,
+body.tema-claro .card-habilidade:hover,
+body.tema-claro .card-contato:hover {
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    border-color: var(--cor-vermelho); /* <-- Borda vermelha restaurada no hover! */
 }
 
 /* ==========================================
@@ -96,48 +236,54 @@ section {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    position: sticky; /* Fixa o cabeçalho no topo da janela durante a rolagem */
+    position: sticky;
     top: 0;
-    z-index: 1000; /* Garante que o cabeçalho fique acima do conteúdo da página */
+    z-index: 1000;
+}
+
+.grupo-direito {
+    display: flex;
+    align-items: center;
+    gap: 1.6rem;
 }
 
 .logo-container {
     display: flex;
     align-items: center;
     width: auto;
-    max-width: 30rem; 
+    max-width: 30rem;
 }
 
 .logo-img {
-    filter: invert(1) brightness(2); /* Inverte a cor da imagem para uso em fundo preto */
+    filter: invert(1) brightness(2);
     height: 6rem;
     width: max-content;
-    object-fit: contain; /* Mantém a proporção original da imagem dentro do container */
+    object-fit: contain;
 }
 
 .nav-oculta-mobile {
-    display: none; /* Oculta o menu por padrão na visualização mobile */
+    display: none;
 }
 
 .nav-oculta-mobile.ativo {
-    display: flex; /* Exibe o menu quando a classe .ativo é adicionada via JS */
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: fixed; /* Sobrepõe o menu a toda a tela */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100vh;
-    background-color: var(--cor-bg-preto); 
-    z-index: 2000; /* Garante que o menu aberto fique acima do próprio cabeçalho sticky */
+    background-color: var(--cor-bg-preto);
+    z-index: 2000;
 }
 
 .nav-oculta-mobile.ativo .lista-links {
     display: flex;
     flex-direction: column;
-    align-items: center; 
-    gap: 4rem; /* Define o espaçamento vertical entre os links do menu */
+    align-items: center;
+    gap: 4rem;
 }
 
 .link-nav {
@@ -146,7 +292,7 @@ section {
 }
 
 .link-nav:hover {
-    color: var(--cor-vermelho); 
+    color: var(--cor-vermelho);
 }
 
 .menu-toggle {
@@ -168,7 +314,7 @@ section {
 }
 
 .btn-fechar {
-    position: absolute; /* Posiciona o botão no canto superior direito do menu overlay */
+    position: absolute;
     top: 1.6rem;
     right: 2.4rem;
     background: transparent;
@@ -180,7 +326,7 @@ section {
 }
 
 .btn-fechar:hover {
-    background-color: var(--cor-bg-cinza); 
+    background-color: var(--cor-bg-cinza);
 }
 
 .icone-fechar {
@@ -196,10 +342,10 @@ section {
 .secao-hero {
     background-color: var(--cor-bg-cinza);
     display: flex;
-    flex-direction: column-reverse; /* Inverte a ordem: imagem acima do texto no mobile */
+    flex-direction: column-reverse;
     align-items: center;
     text-align: center;
-    padding: 4rem 1rem; 
+    padding: 4rem 1rem;
     gap: 2rem;
 }
 
@@ -207,9 +353,9 @@ section {
     font-size: 3.7rem;
     font-weight: 700;
     background-image: linear-gradient(to right, var(--cor-vermelho), var(--cor-vermelho-claro));
-    -webkit-background-clip: text; /* Aplica o gradiente apenas à área desenhada pelo texto */
+    -webkit-background-clip: text;
     background-clip: text;
-    -webkit-text-fill-color: transparent; /* Torna a cor base invisível para exibir o gradiente de fundo */
+    -webkit-text-fill-color: transparent;
     color: transparent;
 }
 
@@ -220,14 +366,12 @@ section {
 /* Animação do Cursor da Seção Hero */
 .cursor-pisca {
     -webkit-text-fill-color: var(--cor-branco);
-    /* Força a cor ignorando o transparente do gradiente */
     color: var(--cor-vermelho);
     font-weight: 400;
     animation: piscar 0.8s step-end infinite;
 }
 
 @keyframes piscar {
-
     0%,
     100% {
         opacity: 1;
@@ -237,36 +381,35 @@ section {
         opacity: 0;
     }
 }
-/* === Moldura com Gradiente Radial (Mobile) === */
 
+/* === Moldura com Gradiente Radial (Mobile) === */
 .foto-moldura {
     display: flex;
     width: 100%;
     max-width: 28rem;
-    aspect-ratio: 1 / 1; /* Força o container a ser um quadrado perfeito */
+    aspect-ratio: 1 / 1;
     background: radial-gradient(circle, var(--cor-bg-preto) 0%, var(--cor-vermelho) 100%);
-    border-radius: 50%; /* Transforma o quadrado em círculo */
+    border-radius: 50%;
     padding: 1.5rem;
-        /* Cria o espaço que funcionará como a espessura da borda colorida */
     justify-content: center;
     align-items: center;
-    
 }
 
 .foto-perfil {
-    width: 100%; 
-    height: 100%; 
-    border-radius: 50%; /* Garante que a imagem interna também seja circular */
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
     border: none;
-    object-fit: cover; /* Preenche o círculo cortando excessos sem distorcer a imagem */
+    object-fit: cover;
     transition: transform 0.2s ease;
-    }
-    
-    .foto-perfil:hover {
-        transform: scale(1.05);
 }
 
-.btn, .btn-curriculo {
+.foto-perfil:hover {
+    transform: scale(1.05);
+}
+
+.btn,
+.btn-curriculo {
     background-color: var(--cor-vermelho);
     display: inline-flex;
     align-items: center;
@@ -299,7 +442,7 @@ section {
 
 .grid-habilidades {
     display: grid;
-    grid-template-columns: 1fr; /* Exibe 1 coluna no formato mobile */
+    grid-template-columns: 1fr;
     gap: 2.4rem;
 }
 
@@ -309,24 +452,27 @@ section {
     border-radius: 1.2rem;
     border: 1px solid var(--cor-cinza-escuro);
     text-align: center;
-    transition: transform 0.3s ease, border-color 0.3s ease;
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
 }
 
 .card-habilidade:hover {
-    transform: translateY(-5px); /* Move o card para cima criando efeito de elevação */
+    /* Move o card para cima criando efeito de elevação */
+    transform: translateY(-5px);
     border-color: var(--cor-vermelho);
 }
 
-.card-habilidade i, 
+.card-habilidade i,
 .icone-destaque {
     font-size: 4.8rem;
     width: 4.8rem;
     height: 4.8rem;
     margin-bottom: 1.6rem;
-    color: var(--cor-branco); 
+    color: var(--cor-branco);
     display: block;
-        margin: 0 auto 1.6rem auto;
-        line-height: 1;
+    margin: 0 auto 1.6rem auto;
+    line-height: 1;
 }
 
 .titulo-card {
@@ -357,11 +503,13 @@ section {
 .card-projeto {
     background-color: var(--cor-bg-preto);
     border-radius: 1.2rem;
-    overflow: hidden; /* Oculta as quinas da imagem que ultrapassam o raio da borda do card */
+    overflow: hidden;
     border: 1px solid var(--cor-cinza-escuro);
     display: flex;
     flex-direction: column;
-    transition: transform 0.3s ease, border-color 0.3s ease;
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
 }
 
 .card-projeto:hover {
@@ -369,17 +517,34 @@ section {
     border-color: var(--cor-vermelho);
 }
 
-.imagem-projeto {
+.capa-icone {
     width: 100%;
     height: 20rem;
-    object-fit: cover; /* Ajusta a proporção da imagem ao container */
+    background: linear-gradient(135deg, var(--cor-cinza-escuro) 0%, var(--cor-bg-cinza) 80%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid var(--cor-cinza-escuro);
+}
+
+.capa-icone span {
+    font-size: 10rem;
+    color: var(--cor-branco);
+    transition:
+        transform 0.3s ease,
+        color 0.3s ease;
+}
+
+.card-projeto:hover .capa-icone span {
+    transform: scale(1.1);
+    color: var(--cor-vermelho);
 }
 
 .info-projeto {
     padding: 2.4rem;
     display: flex;
     flex-direction: column;
-    flex-grow: 1; /* Permite que o texto ocupe todo o espaço vertical disponível, empurrando o rodapé do card */
+    flex-grow: 1;
     gap: 1.6rem;
 }
 
@@ -396,7 +561,7 @@ section {
 }
 
 .botoes-projeto {
-    margin-top: auto; /* Força os botões para a base inferior do card */
+    margin-top: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -426,7 +591,7 @@ section {
     display: flex;
     flex-direction: column;
     gap: 1.6rem;
-    font-style: normal; /* Sobrescreve o estilo itálico padrão renderizado na tag HTML <address> */
+    font-style: normal;
 }
 
 .card-contato {
@@ -437,7 +602,9 @@ section {
     display: flex;
     align-items: center;
     gap: 1.6rem;
-    transition: transform 0.3s ease, border-color 0.3s ease;
+    transition:
+        transform 0.3s ease,
+        border-color 0.3s ease;
 }
 
 .card-contato:hover {
@@ -445,7 +612,8 @@ section {
     border-color: var(--cor-vermelho);
 }
 
-.icone-contato, .card-contato i {
+.icone-contato,
+.card-contato i {
     width: 3.2rem;
     height: 3.2rem;
     font-size: 3.2rem;
@@ -463,14 +631,17 @@ section {
     margin-bottom: 0.4rem;
 }
 
-.link-contato, .dados-contato p, .dados-contato a {
+.link-contato,
+.dados-contato p,
+.dados-contato a {
     font-size: 1.6rem;
     color: var(--cor-branco);
     font-weight: 500;
     transition: color 0.3s ease;
 }
 
-.link-contato:hover, .dados-contato a:hover {
+.link-contato:hover,
+.dados-contato a:hover {
     color: var(--cor-vermelho);
 }
 
@@ -488,7 +659,7 @@ section {
 .linha-inputs {
     display: flex;
     flex-direction: column;
-    gap: 1rem; 
+    gap: 1rem;
 }
 
 .campo-form {
@@ -504,12 +675,12 @@ section {
 }
 
 .campo-form:focus {
-    outline: none; /* Remove a borda azul/preta padrão do navegador ao clicar no input */
+    outline: none;
     border-color: var(--cor-vermelho);
 }
 
 .texto-area {
-    resize: vertical; /* Permite que o usuário redimensione o textarea apenas na altura */
+    resize: vertical;
     min-height: 12rem;
 }
 
@@ -549,7 +720,7 @@ section {
 
 /* Botão Voltar ao Topo */
 .btn-flutuante {
-    position: fixed; /* Mantém o botão parado na tela, independentemente da rolagem */
+    position: fixed;
     bottom: 3.2rem;
     right: 2.4rem;
     background-color: var(--cor-vermelho);
@@ -562,8 +733,11 @@ section {
     align-items: center;
     cursor: pointer;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-    z-index: 999; /* Garante que o botão sobreponha o conteúdo comum */
-    transition: opacity 0.3s ease, transform 0.3s ease, background-color 0.3s ease;
+    z-index: 999;
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease,
+        background-color 0.3s ease;
 }
 
 .btn-flutuante:hover {
@@ -571,9 +745,9 @@ section {
 }
 
 .btn-flutuante.oculto {
-    opacity: 0; 
-    pointer-events: none; /* Desativa interações de clique enquanto o elemento está invisível */
-    transform: translateY(20px); /* Desloca o botão levemente para baixo ao desaparecer */
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(20px);
 }
 
 .btn-flutuante .icone-botao {
@@ -588,15 +762,18 @@ section {
 /* === TABLETS (768px a 1023px) === */
 @media (min-width: 768px) {
     /* Ajuste de Espaçamento Geral */
-    .secao-hero, .secao-sobre, .secao-habilidades, 
-    .secao-projetos, .secao-contato {
+    .secao-hero,
+    .secao-sobre,
+    .secao-habilidades,
+    .secao-projetos,
+    .secao-contato {
         padding-left: 4rem;
         padding-right: 4rem;
     }
 
     /* INÍCIO (Hero) */
     .secao-hero {
-        flex-direction: row; /* Alinha texto e imagem lado a lado no tablet */
+        flex-direction: row;
         text-align: left;
         justify-content: space-between;
     }
@@ -614,8 +791,9 @@ section {
     }
 
     /* HABILIDADES E PROJETOS */
-    .grid-habilidades, .grid-projetos {
-        grid-template-columns: repeat(2, 1fr); /* Divide o layout do grid em 2 colunas iguais */
+    .grid-habilidades,
+    .grid-projetos {
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .btn {
@@ -626,28 +804,30 @@ section {
         border-radius: 0.8rem;
         font-size: 1.8rem;
         font-weight: 500;
-        transition: background-color 0.3s ease, color 0.3s ease;
-        white-space: nowrap; /* Previne que o texto interno do botão quebre para a linha de baixo */
+        transition:
+            background-color 0.3s ease,
+            color 0.3s ease;
+        white-space: nowrap;
     }
 
     .botoes-projeto {
-        flex-wrap: wrap; /* Permite que os elementos ocupem múltiplas linhas se o espaço faltar */
+        flex-wrap: wrap;
         justify-content: center;
         gap: 1.2rem;
     }
 
     .card-projeto .btn {
         padding: 0.8rem 1rem;
-        font-size: 1.4rem; 
-        flex: 1; /* Faz com que os botões cresçam igualmente para preencher o espaço horizontal */
+        font-size: 1.4rem;
+        flex: 1;
         justify-content: center;
     }
 
     /* CONTATO */
     .linha-inputs {
-        flex-direction: row; /* Coloca os inputs curtos lado a lado no tablet */
+        flex-direction: row;
     }
-    
+
     .linha-inputs .grupo-input {
         width: 100%;
     }
@@ -656,9 +836,12 @@ section {
 /* === DESKTOPS (PCs e Notebooks - a partir de 1024px) === */
 @media (min-width: 1024px) {
     /* ESPAÇAMENTO GERAL */
-    .secao-hero, .secao-sobre, .secao-habilidades, 
-    .secao-projetos, .secao-contato {
-        padding-left: 12vw; /* Define margens relativas à largura da janela (viewport width) */
+    .secao-hero,
+    .secao-sobre,
+    .secao-habilidades,
+    .secao-projetos,
+    .secao-contato {
+        padding-left: 12vw;
         padding-right: 12vw;
         padding-top: 8rem;
         padding-bottom: 8rem;
@@ -666,70 +849,73 @@ section {
 
     /* CABEÇALHO E MENU HORIZONTAL */
     .cabecalho-principal {
-        padding: 0.1rem 3vw; 
+        padding: 0.1rem 3vw;
         height: 6vh;
     }
 
     .logo-container {
         display: flex;
         align-items: center;
-        justify-content: center; 
+        justify-content: center;
         width: auto;
         max-width: 40rem;
     }
 
     .logo-img {
         filter: invert(1) brightness(2);
-        height: 8rem; 
+        height: 8rem;
         width: auto;
         object-fit: contain;
     }
 
-    .menu-toggle, .nav-oculta-mobile .btn-fechar {
-        display: none; /* Oculta ícones de abrir/fechar menu exclusivos do layout mobile */
+    .menu-toggle,
+    .nav-oculta-mobile .btn-fechar {
+        display: none;
     }
 
     .nav-oculta-mobile {
-        display: block; /* Torna o menu sempre visível em telas grandes */
-        position: static; /* Restaura o fluxo normal do elemento para exibir junto com o cabeçalho */
+        display: block;
+        position: static;
         height: auto;
         width: auto;
-        background-color: transparent; 
+        background-color: transparent;
     }
 
     .nav-oculta-mobile .lista-links {
         display: flex;
-        flex-direction: row; /* Alinha os links do menu lado a lado */
+        flex-direction: row;
         align-items: center;
     }
 
     .link-nav {
-        font-size: 2rem; 
+        font-size: 2rem;
         font-weight: 500;
         padding: 0.8rem 1.6rem;
         border-radius: 0.8rem;
-        transition: color 0.3s ease, background-color 0.3s ease; 
+        transition:
+            color 0.3s ease,
+            background-color 0.3s ease;
     }
 
     .link-nav:hover {
-        color: var(--cor-vermelho); 
+        color: var(--cor-vermelho);
         background-color: var(--cor-bg-cinza);
     }
 
     /* INÍCIO (Hero) */
     .secao-hero {
-        flex-direction: row; 
-        text-align: left; 
+        flex-direction: row;
+        text-align: left;
         justify-content: space-between;
     }
 
     .titulo {
-        font-size: 5.6rem; 
+        font-size: 5.6rem;
         line-height: 1.2;
     }
 
     .hero-texto {
-        max-width: 45%; 
+        max-width: 45%;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
@@ -748,13 +934,13 @@ section {
     }
 
     .foto-moldura {
-        max-width: 38rem; /* Aumenta o tamanho limite do container da foto no Desktop */
-        padding: 1.5rem; /* Mantém a espessura da borda da moldura */
-}
+        max-width: 38rem;
+        padding: 1.5rem;
+    }
 
     /* SOBRE MIM */
     .sobre-conteudo {
-        max-width: 80rem; /* Limita a largura do parágrafo para não dificultar a leitura (line length) */
+        max-width: 80rem;
     }
 
     /* HABILIDADES E PROJETOS */
@@ -775,7 +961,7 @@ section {
 
     /* CONTATO */
     .grid-contato {
-        grid-template-columns: 1fr 1.5fr; /* Distribui as colunas de contato, sendo o formulário maior (1.5x) */
+        grid-template-columns: 1fr 1.5fr;
         gap: 8rem;
         align-items: start;
     }
