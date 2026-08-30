@@ -16,7 +16,7 @@
         />
         <meta
             property="og:image"
-            content="https://fhugomp.github.io/Images/og-image-portfolio.jpg"
+            content="https://fhugomp.github.io/Images/og-image-portfolio.webp"
         />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="pt_BR" />
@@ -115,7 +115,10 @@
                 </div>
                 <div class="hero-imagem">
                     <div class="foto-moldura">
-                        <img src="./Images/perfil.png" alt="Foto de perfil" class="foto-perfil" />
+                        <picture>
+                            <source srcset="./Images/perfil.webp" type="image/webp" />
+                            <img src="./Images/perfil.png" alt="Foto de perfil" class="foto-perfil" />
+                        </picture>
                     </div>
                 </div>
             </section>
