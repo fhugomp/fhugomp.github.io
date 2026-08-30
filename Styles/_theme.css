@@ -1,0 +1,143 @@
+/* ==========================================
+   CORREÇÕES DE CORES, TEMA E ELEVAÇÕES
+   ========================================== */
+
+/* === Tema Escuro (padrão — aplicado via class no <body>) === */
+.tema-escuro {
+    background-color: var(--cor-bg-preto);
+    color: var(--cor-branco);
+}
+
+/* === Botão de Alternância de Tema === */
+.btn-tema {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--cor-branco);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem;
+    border-radius: 50%;
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+    margin-right: 1.6rem;
+
+    &:hover {
+        background-color: var(--cor-bg-cinza);
+    }
+}
+
+/* === Tema Claro (alternado via JavaScript / localStorage) === */
+body.tema-claro {
+    --cor-bg-preto: #f3f4f6;
+    --cor-bg-cinza: #ffffff;
+    --cor-branco: #111827;
+    --cor-cinza-escuro: #e5e7eb;
+    --cor-cinza-claro: #4b5563;
+
+    /* --- 1. LOGOMARCA --- */
+    & .logo-img {
+        filter: none;
+    }
+
+    /* --- 2. MOLDURA DA FOTO DE PERFIL --- */
+    & .foto-moldura {
+        background: var(--cor-vermelho);
+    }
+
+    /* --- 3. BOTÕES PRIMÁRIOS (Download e Enviar Form) --- */
+    & .btn {
+        color: #ffffff;
+
+        & .icone-botao,
+        & .icone-download {
+            filter: invert(0) !important;
+        }
+
+        &:hover {
+            color: var(--cor-branco);
+
+            & .icone-botao,
+            & .icone-download {
+                filter: invert(1) brightness(0.2) !important;
+            }
+        }
+    }
+
+    /* --- 4. BOTÕES SECUNDÁRIOS (Projetos - Lupa) --- */
+    & .btn.btn-secundario {
+        color: var(--cor-branco);
+
+        & .icone-botao {
+            filter: invert(1) brightness(0.2) !important;
+        }
+
+        &:hover {
+            color: #ffffff;
+
+            & .icone-botao {
+                filter: invert(0) !important;
+            }
+        }
+    }
+
+    /* --- 5. ÍCONES DE HABILIDADES E CONTATO --- */
+    & .icone-destaque,
+    & .icone-contato {
+        filter: invert(1) brightness(0.2);
+    }
+
+    /* --- 6. BOTÃO FLUTUANTE (Voltar ao Topo) --- */
+    & .btn-flutuante:hover .icone-botao {
+        filter: invert(1) brightness(0.2) !important;
+    }
+
+    /* --- 7. ÍCONES DO MENU MOBILE --- */
+    & .icone-menu,
+    & .icone-fechar {
+        filter: invert(1) brightness(0.2);
+    }
+}
+
+/* ==========================================
+   SOMBRAS E ELEVAÇÕES
+   ========================================== */
+
+/* Sombras Padrão (Tema Escuro) */
+.formulario,
+.card-projeto,
+.card-habilidade,
+.card-contato {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Sombras Intensificadas no Hover (Tema Escuro) */
+.card-projeto,
+.card-habilidade,
+.card-contato {
+    &:hover {
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+    }
+}
+
+/* --- Sombras Específicas para o Tema Claro --- */
+body.tema-claro {
+    & .formulario,
+    & .card-projeto,
+    & .card-habilidade,
+    & .card-contato {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        border-color: transparent;
+    }
+
+    & .card-projeto,
+    & .card-habilidade,
+    & .card-contato {
+        &:hover {
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+            border-color: var(--cor-vermelho);
+        }
+    }
+}

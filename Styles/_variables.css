@@ -1,0 +1,52 @@
+/* ==========================================
+   1. VARIÁVEIS E RESET
+   ========================================== */
+
+:root {
+    --cor-bg-preto: #000000;
+    --cor-bg-cinza: #131313;
+    --cor-vermelho: #a71818;
+    --cor-vermelho-claro: #9e3f3f;
+    --cor-cinza-claro: #919dab;
+    --cor-cinza-escuro: #27302e;
+    --cor-branco: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.5;
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+    -ms-overflow-style: none;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+p {
+    font-size: 2rem;
+}

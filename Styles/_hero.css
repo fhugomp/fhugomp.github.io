@@ -1,0 +1,139 @@
+/* ==========================================
+   4. SEÇÃO INÍCIO (HERO)
+   ========================================== */
+
+.secao-hero {
+    background-color: var(--cor-bg-cinza);
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    text-align: center;
+    padding: 4rem 1rem;
+    gap: 2rem;
+
+    @media (min-width: 768px) {
+        padding-left: 4rem;
+        padding-right: 4rem;
+        flex-direction: row;
+        text-align: left;
+        justify-content: space-between;
+
+        & .btn {
+            display: inline-flex;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        padding-left: 12vw;
+        padding-right: 12vw;
+        padding-top: 8rem;
+        padding-bottom: 8rem;
+        flex-direction: row;
+        text-align: left;
+        justify-content: space-between;
+    }
+}
+
+/* === Conteúdo Textual do Hero === */
+.hero-texto {
+    @media (min-width: 768px) {
+        max-width: 50%;
+    }
+
+    @media (min-width: 1024px) {
+        max-width: 45%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2.8rem;
+    }
+}
+
+.hero-imagem {
+    @media (min-width: 768px) {
+        & .foto-perfil {
+            max-width: 28rem;
+        }
+    }
+
+    @media (min-width: 1024px) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+/* === Tipografia do Hero === */
+.titulo {
+    font-size: 3.7rem;
+    font-weight: 700;
+    background-image: linear-gradient(to right, var(--cor-vermelho), var(--cor-vermelho-claro));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+
+    @media (min-width: 1024px) {
+        font-size: 5.6rem;
+        line-height: 1.2;
+    }
+}
+
+.subtitulo {
+    margin-bottom: 1rem;
+
+    @media (min-width: 1024px) {
+        margin-bottom: 0;
+        font-size: 2rem;
+    }
+}
+
+/* === Animação do Cursor da Seção Hero === */
+.cursor-pisca {
+    -webkit-text-fill-color: var(--cor-branco);
+    color: var(--cor-vermelho);
+    font-weight: 400;
+    animation: piscar 0.8s step-end infinite;
+}
+
+@keyframes piscar {
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+/* === Moldura com Gradiente Radial === */
+.foto-moldura {
+    display: flex;
+    width: 100%;
+    max-width: 28rem;
+    aspect-ratio: 1 / 1;
+    background: radial-gradient(circle, var(--cor-bg-preto) 0%, var(--cor-vermelho) 100%);
+    border-radius: 50%;
+    padding: 1.5rem;
+    justify-content: center;
+    align-items: center;
+
+    @media (min-width: 1024px) {
+        max-width: 38rem;
+        padding: 1.5rem;
+    }
+}
+
+.foto-perfil {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: none;
+    object-fit: cover;
+    transition: transform 0.2s ease;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+}

@@ -1,0 +1,65 @@
+/* ==========================================
+   2. ESTILOS GLOBAIS E COMPONENTES
+   ========================================== */
+
+/* Compensação para links âncora com menu fixo */
+section {
+    scroll-margin-top: 8rem;
+}
+
+/* === Animações Globais (Fade-in Scroll) === */
+.animar-fade {
+    opacity: 0;
+    transform: translateY(40px);
+    transition:
+        opacity 0.6s ease-out,
+        transform 0.6s ease-out;
+    will-change: opacity, transform;
+
+    &.visivel {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* === Botões Padrões === */
+/*
+ * Merge das declarações originais:
+ *   - Bloco 1 (l.76): propriedades base do .btn
+ *   - Bloco 2 (l.417): .btn e .btn-curriculo com display flex + padding: 1.2rem (efetivo no mobile)
+ *   - @media 768px (l.805): reverte padding para 0.8rem e adiciona white-space
+ */
+.btn,
+.btn-curriculo {
+    color: var(--cor-branco);
+    background-color: var(--cor-vermelho);
+    padding: 1.2rem 2.4rem;
+    border: 2px solid var(--cor-vermelho);
+    border-radius: 0.8rem;
+    font-size: 1.8rem;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+
+    &:hover {
+        background-color: var(--cor-bg-preto);
+    }
+
+    &.btn-secundario {
+        background-color: var(--cor-bg-preto);
+
+        &:hover {
+            background-color: var(--cor-vermelho);
+        }
+    }
+
+    @media (min-width: 768px) {
+        padding: 0.8rem 2.4rem;
+        white-space: nowrap;
+    }
+}

@@ -1,0 +1,64 @@
+/* ==========================================
+   5. RODAPÉ E BOTÃO FLUTUANTE
+   ========================================== */
+
+.rodape-site {
+    background-color: var(--cor-bg-preto);
+    padding: 3.2rem 2.4rem;
+    text-align: center;
+    border-top: 1px solid var(--cor-cinza-escuro);
+}
+
+.creditos-rodape {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.texto-direitos {
+    font-size: 1.6rem;
+    color: var(--cor-branco);
+    font-weight: 500;
+}
+
+.texto-adaptacao {
+    font-size: 1.4rem;
+    color: var(--cor-cinza-claro);
+}
+
+/* === Botão Voltar ao Topo === */
+.btn-flutuante {
+    position: fixed;
+    bottom: 3.2rem;
+    right: 2.4rem;
+    background-color: var(--cor-vermelho);
+    border: 2px solid var(--cor-vermelho);
+    border-radius: 50%;
+    width: 5.6rem;
+    height: 5.6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    z-index: 999;
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease,
+        background-color 0.3s ease;
+
+    &:hover {
+        background-color: var(--cor-bg-preto);
+    }
+
+    &.oculto {
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(20px);
+    }
+
+    & .icone-botao {
+        width: 3.2rem;
+        height: 3.2rem;
+    }
+}
